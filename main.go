@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"ft_Tool/modules/helpcommand"
 	"ft_Tool/modules/menu"
 	"ft_Tool/modules/version"
 
@@ -18,6 +19,7 @@ func main() {
 	blank, _ := reg.Register("")
 	blank.AddFlag("version", "v", true, "")
 	reg.Register("version")
+	reg.Register("help")
 	command, err := reg.Parse(os.Args[1:])
 	if err != nil {
 		if strings.Contains(err.Error(), "unknown command") {
@@ -32,5 +34,7 @@ func main() {
 	case "version":
 		version.ShowVersion()
 
+	case "help":
+		helpcommand.ShowHelp()
 	}
 }

@@ -2,7 +2,7 @@ package menu
 
 import (
 	_ "embed"
-	"fmt"
+	"ft_Tool/modules/helpcommand"
 	"ft_Tool/modules/version"
 	"os"
 
@@ -16,9 +16,6 @@ var textbig string
 
 //go:embed textsmall.txt
 var textsmall string
-
-//go:embed commands.txt
-var commands string
 
 func ShowMenu(cmd *clapper.CommandConfig) {
 	if val, ok := cmd.Flags["version"]; ok && val.Value == "true" {
@@ -41,10 +38,6 @@ func ShowMenu(cmd *clapper.CommandConfig) {
 		} else {
 			println(style.Render(textsmall))
 		}
-		commandsStyle := lipgloss.NewStyle().
-			Foreground(lipgloss.Color("#869ef4")).
-			Bold(true).
-			Padding(1, 1)
-		fmt.Printf("%s\n", commandsStyle.Render(commands))
+		helpcommand.ShowHelp()
 	}
 }
