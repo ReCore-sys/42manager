@@ -1,0 +1,6 @@
+Commands:
+
+  help [COMMAND]  | Describe available commands or one specific command
+  new [NAME]      | Create a new project scaffold
+  version         | Show the current version
+  install [TOOL]  | Install a new tool on your system
